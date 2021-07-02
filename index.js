@@ -2,18 +2,16 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 const path = require('path');
-var serveStatic = require('serve-static')
 
 
 const app = express();
 const cors = require('cors');
 require('dotenv').config();
 
-app.use(serveStatic(path.join(__dirname, 'dist')))
 
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.get('/',(req,res) =>{   
     res.send("Server para envios de email"); 
