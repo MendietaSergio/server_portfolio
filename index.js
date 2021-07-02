@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.get('/',(req,res) =>{   
-    res.send("Server para envios de email"); 
+    res.render ('home'); 
 });
 
 // let whiteList =['http://localhost:3000/']
