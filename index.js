@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.get('/',(req,res) =>{   
-    res.render ('home'); 
+    res.send("Server para envios de email"); 
 });
 
 // let whiteList =['http://localhost:3000/']
@@ -67,7 +67,7 @@ app.get('/',(req,res) =>{
 //         console.log("Preview URL: %s", nodeMailer.getTestMessageUrl(info));
 //     })
 // })
-const PORT = process.env.PORT || 3009;
-app.listen(process.env.PORT, () => { 
+const PORT = process.env.PORT || 3008;
+app.listen(PORT, () => { 
     console.log(`Servidor en el puerto ${PORT}`);
 })
