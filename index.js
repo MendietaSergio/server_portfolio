@@ -28,7 +28,7 @@ let corsOptions ={
         }
     }
 }
-app.post("/api/form", (req, res) => {
+app.post("/api/form", cors(corsOptions),(req, res) => {
     const contentHTML = `
         <h3>Email enviado desde React</h3>
         <ul>
