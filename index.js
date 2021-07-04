@@ -50,13 +50,12 @@ app.post("/api/form", cors(corsOptions), (req, res) => {
     })
     let mailOptions = {
         from: req.body.email,
-        to: req.body.email,
+        to: process.env.EMAIL+","+req.body.email,
         subject: req.body.asunto,
         html: contentHTML
     }
     transporter.sendMail(mailOptions, (err, info) => {
         if (err) {
-            console.log("estoy en err");
             return console.log(err);
         }
         console.log("Mensaje enviado: %s", info.comentario);
