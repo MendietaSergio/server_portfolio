@@ -17,7 +17,7 @@ app.get('/',(req,res) =>{
     res.send("Server para envios de email"); 
 });
 
-let whiteList =['http://localhost:3000/']
+let whiteList =['http://localhost:3000/',"https://smendietaportfolio.herokuapp.com/#/"]
 
 let corsOptions ={
     origin: function(origin, callback){
