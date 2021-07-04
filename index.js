@@ -13,11 +13,8 @@ require('dotenv').config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
-app.get('/',(req,res) =>{   
-    res.send("Server para envios de email"); 
-});
 
-let whiteList =['http://localhost:3000/',"https://smendietaportfolio.herokuapp.com/#/"]
+let whiteList =['https://smendietaportfolio.herokuapp.com/#/']
 
 let corsOptions ={
     origin: function(origin, callback){
@@ -28,7 +25,12 @@ let corsOptions ={
         }
     }
 }
-app.post("/api/form",(req, res) => {
+
+app.get('/',(req,res) =>{   
+    res.send("Server para envios de email"); 
+});
+
+app.post("/api/form",cors(corsOptions),(req, res) => {
     const contentHTML = `
         <h3>Email enviado desde React</h3>
         <ul>
