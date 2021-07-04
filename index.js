@@ -1,35 +1,30 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
-const path = require('path');
-
 
 const app = express();
 const cors = require('cors');
 require('dotenv').config();
 
-
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-let whiteList =['https://smendietaportfolio.herokuapp.com']
+let whiteList = ['https://smendietaportfolio.herokuapp.com']
 
-let corsOptions ={
-    origin: function(origin, callback){
-        if(whiteList.indexOf(origin)!=-1){
-            callback(null,true);
-        }else{
+let corsOptions = {
+    origin: function (origin, callback) {
+        if (whiteList.indexOf(origin) != -1) {
+            callback(null, true);
+        } else {
             callback(new Error('Error al acceder.'))
         }
     }
 }
-app.get('/',(req,res) =>{   
-    res.send("Server para envios de email"); 
+app.get('/', (req, res) => {
+    res.send("Server para envios de email");
 });
 
-app.post("/api/form",cors(corsOptions),(req, res) => {
+app.post("/api/form", cors(corsOptions), (req, res) => {
     const contentHTML = `
         <h3>Email enviado desde React</h3>
         <ul>
@@ -67,8 +62,14 @@ app.post("/api/form",cors(corsOptions),(req, res) => {
         console.log("Mensaje enviado: %s", info.comentario);
         console.log("Preview URL: %s", nodeMailer.getTestMessageUrl(info));
     })
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Methods', 'POST');
+    res.header("Access-Control-Allow-Headers", "accept, content-type");
+    res.header("Access-Control-Max-Age", "1728000");
+    return res.sendStatus(200);
+
 })
 const PORT = process.env.PORT || 3008;
-app.listen(PORT, () => { 
+app.listen(PORT, () => {
     console.log(`Servidor en el puerto ${PORT}`);
 })
