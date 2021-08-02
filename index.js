@@ -42,7 +42,7 @@ app.post("/api/form",cors(corsOptions), (req, res) => {
         port: 465,
         secure: true,
         auth: {
-            user: process.env.EMAIL,
+            user: process.env.EMAIL_PORTFOLIO,
             pass: process.env.EMAIL_PASSWORD
         },
         tls: {
@@ -51,7 +51,7 @@ app.post("/api/form",cors(corsOptions), (req, res) => {
     })
     let mailOptions = {
         from: req.body.email,
-        to: process.env.EMAIL+","+req.body.email,
+        to: process.env.EMAIL_USER+","+req.body.email,
         subject: req.body.asunto,
         html: contentHTML
     }
