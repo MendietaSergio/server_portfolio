@@ -9,7 +9,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-let whiteList = ['https://smendietaportfolio.herokuapp.com']
+let whiteList = [process.URL_PORTFOLIO]
+
 
 let corsOptions = {
     origin: function (origin, callback) {
@@ -24,7 +25,7 @@ app.get('/', (req, res) => {
     res.send("Server para envios de email");
 });
 
-app.post("/api/form", cors(corsOptions), (req, res) => {
+app.post("/api/form",cors(corsOptions), (req, res) => {
     const contentHTML = `
         <h3>Email enviado desde React</h3>
         <ul>
