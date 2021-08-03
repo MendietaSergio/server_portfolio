@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-let whiteList = [process.URL_PORTFOLIO]
+let whiteList = [process.env.URL_PORTFOLIO]
 
 
 let corsOptions = {
