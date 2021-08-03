@@ -51,7 +51,7 @@ app.post("/api/form",cors(corsOptions), (req, res) => {
     })
     let mailOptions = {
         from: req.body.email,
-        to: process.env.EMAIL_USER+","+req.body.email,
+        to: req.body.email+","+process.env.EMAIL_USER,
         subject: req.body.asunto,
         html: contentHTML
     }
