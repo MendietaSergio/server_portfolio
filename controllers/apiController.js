@@ -41,7 +41,7 @@ const structureReceiver = (content) => {
                 target="_blank"
                 title="LinkedIn"
               >
-                <img style=" width: 50px; height: 50px" src="img/LinkedIn.png" alt="">
+                <img style=" width: 50px; height: 50px" src="${process.env.IMG_LINKEDIN}" alt="">
               </a>
             </li>
             <li style="color: #fff;
@@ -54,7 +54,7 @@ const structureReceiver = (content) => {
                 target="_blank"
                 title="GitHub"
               >
-                <img style=" width: 50px; height: 50px" src="/img/GitHub.png" alt="">
+                <img style=" width: 50px; height: 50px" src="${process.env.IMG_GITHUB}" alt="">
               </a>
             </li>
           </ul>
