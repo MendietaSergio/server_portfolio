@@ -1,9 +1,7 @@
-const nodemailer = require('nodemailer')
-
+const nodemailer = require("nodemailer");
 
 const structureReceiver = (content) => {
-  let contenido = `
-<html lang="es">
+  let contenido = `<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +13,7 @@ const structureReceiver = (content) => {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;-webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; background-color: #F7F8FA; color: black;">
+  <div>
     <main>
     <header style="background-color: #0a71c6d1; width: auto;" >
     <div>
@@ -111,31 +110,29 @@ const structureReceiver = (content) => {
           </div>
       </div>
   </footer>
+  </div>
   </body>
   </html>
 `;
   return contenido;
 };
 let transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      secureConnection: true,
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.EMAIL_PORTFOLIO,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-      tls: {
-        rejectUnauthorized: false,
-      },
-    });
+  host: "smtp.gmail.com",
+  secureConnection: true,
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_PORTFOLIO,
+    pass: process.env.EMAIL_PASSWORD,
+  },
+  tls: {
+    rejectUnauthorized: false,
+  },
+});
 module.exports = {
   apiForm: (req, res) => {
     const content = req.body;
     const contentHTML = structureReceiver(content);
-///ver por que no recibe los datos del formulario
-    console.log(req.body);
-    
     let mailOptions = {
       from: req.body.email,
       to: req.body.email + "," + process.env.EMAIL_USER,
@@ -149,10 +146,6 @@ module.exports = {
       console.log("Mensaje enviado: %s", info.comentario);
       console.log("Preview URL: %s", nodeMailer.getTestMessageUrl(info));
     });
-    // res.header("Access-Control-Allow-Origin", "*");
-    // res.header("Access-Control-Allow-Methods", "POST");
-    // res.header("Access-Control-Allow-Headers", "accept, content-type");
-    // res.header("Access-Control-Max-Age", "1728000");
     return res.sendStatus(200);
   },
 };
