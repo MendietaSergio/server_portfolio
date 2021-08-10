@@ -14,7 +14,7 @@ const structureReceiver = (content) => {
 <body style="margin: 0;padding: 0;outline: 0;box-sizing: border-box;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;-webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; background-color: #F7F8FA;">
+  -moz-osx-font-smoothing: grayscale; background-color: #F7F8FA; color: black;">
     <main>
     <header style="background-color: #0a71c6d1; width: auto;" >
     <div>
@@ -41,7 +41,7 @@ const structureReceiver = (content) => {
                 target="_blank"
                 title="LinkedIn"
               >
-                <img style=" width: 50px; height: 50px" src="${process.env.IMG_LINKEDIN}" alt="">
+                <img style=" width: 50px; height: 50px margin-top: 15px" src="${process.env.IMG_LINKEDIN}" alt="">
               </a>
             </li>
             <li style="color: #fff;
@@ -54,7 +54,7 @@ const structureReceiver = (content) => {
                 target="_blank"
                 title="GitHub"
               >
-                <img style=" width: 50px; height: 50px" src="${process.env.IMG_GITHUB}" alt="">
+                <img style=" width: 50px; height: 50px margin-top: 15px" src="${process.env.IMG_GITHUB}" alt="">
               </a>
             </li>
           </ul>
