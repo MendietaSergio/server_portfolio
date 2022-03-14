@@ -148,4 +148,10 @@ module.exports = {
     });
     return res.sendStatus(200);
   },
+    listProyects: (req,res)=>{
+        return res.json({
+            ok:"True",
+            msg:"Lista de proyectos"
+        })
+    }
 };
