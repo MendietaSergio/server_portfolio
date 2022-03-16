@@ -1,5 +1,16 @@
 const nodemailer = require("nodemailer");
-
+const Proyects = require("../models/proyects");
+const multer = require('multer')
+const multerConfig = require('../utils/multerConfig');
+const upload = multer(multerConfig).single('images')
+exports.fileUpload = (req,res,next) =>{
+  upload(req, res, function(error) {
+      if(error){
+          res.json({message:error});
+      }
+      return next();//si no hay error sigue la petición.
+  })
+}
 const structureReceiver = (content) => {
   let contenido = `<html lang="es">
 <head>
@@ -148,10 +159,55 @@ module.exports = {
     });
     return res.sendStatus(200);
   },
-    listProyects: (req,res)=>{
+  listProyects: async (req, res) => {
+    try {
+      const listProyects = await Proyects.find({})
+      if (listProyects.length !== 0) {
+        console.log("listProyects con datos");
         return res.json({
-            ok:"True",
-            msg:"Lista de proyectos"
+          ok: "True",
+          msg: "Lista de proyectos",
+          listProyects
         })
+      } else {
+        console.log("listProyects sin datos");
+        return res.json({
+          ok: "True",
+          msg: "Lista de proyectos sin datos"
+        })
+      }
+    } catch (error) {
+      return res.json({
+        ok: false,
+        msg: "Falla al enviar la peticion"
+      })
     }
+  },
+  newProyects: async (req, res) => {
+    const { title,
+      githubUrl,
+      deployUrl,
+      titleImg } = req.body
+    const newProyects = new Proyects({
+      title,
+      githubUrl,
+      deployUrl,
+      titleImg
+    })
+    try {
+
+      await newProyects.save()
+      res.json({
+        ok: true,
+        msg: "Proyecto agregado",
+        data: newProyects
+      })
+
+    } catch (error) {
+      return res.json({
+        ok: false,
+        msg: "Falla al enviar la peticion"
+      })
+    }
+  }
 };
