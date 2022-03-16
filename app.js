@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
 require('dotenv').config();
-
+const mongoose = require('mongoose')
 var indexRouter = require('./routes/index');
 var proyectsRouter = require('./routes/proyects');
 var app = express();
@@ -29,7 +29,18 @@ app.use('/api', proyectsRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
+const DB_MONGO = process.env.URL_MONGO;  
+mongoose.connect(DB_MONGO,{
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}, (error) => {
+  if(error){
+    console.log("ERROR EN LA CONEXIÓN");
+    console.log(error);
+  }else{
+    console.log("*** BASE DE DATOS CONECTADO ***");
+  }
+})
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
