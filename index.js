@@ -29,7 +29,7 @@ app.use('/api', proyectsRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-const DB_MONGO = process.env.URL_MONGO;  
+const DB_MONGO = process.env.DB_MONGO;  
 mongoose.connect(DB_MONGO,{
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -51,5 +51,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+const host = process.env.HOST || '0.0.0.0';
+const port = process.env.PORT || 3000;
+app.listen(port, host, () => {
+  "Servidor funcionando"
+});
 module.exports = app;
