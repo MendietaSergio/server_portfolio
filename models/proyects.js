@@ -1,22 +1,25 @@
-const {Schema, model} = require('mongoose')
+const { Schema, model } = require('mongoose')
 
 const ProyectsSchema = Schema(
     {
-        title:{
+        title: {
             type: String,
-            require:[true, 'El nombre del proyecto es obligatorio']
+            require: [true, 'El nombre del proyecto es obligatorio']
         },
-        githubUrl:{
-            type:String,
+        githubUrl: {
+            type: String,
             require: [true, "La URL del GitHub, es obligatorio"]
         },
-        deployUrl:{
+        deployUrl: {
             type: String,
             require: [true, "La URL del deploy, es obligatorio"]
         },
-        titleImg:{
+        titleImg: {
             type: String,
             require: [true, "La URL de la imagen, es obligatorio"]
+        },
+        type: {
+            type: String,
         }
     },
     {
