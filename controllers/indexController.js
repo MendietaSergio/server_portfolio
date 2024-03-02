@@ -1,11 +1,9 @@
-
-
-
 module.exports = {
     home: (req,res) =>{
         res.render('index',{
-            title: "Server email",
-            css: "header.css"
+            title: "API portafolio",
+            cssHeader: "../header.css",
+            cssIndex: "index.css"
         })
     }
 }

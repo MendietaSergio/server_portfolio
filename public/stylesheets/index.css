@@ -1,0 +1,70 @@
+/* INICIO PRESENTATION */
+
+.img-header {
+  background-image: url("https://res.cloudinary.com/freelance01/image/upload/v1648434132/Proyects_Portfolio/portada_portfolio_ny1hcy.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.img-foto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 22px 0;
+}
+
+.foto-perfil {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.container-info {
+  padding: 10px;
+  font-family: "Font Awesome 5 Brands";
+  color: white;
+  font-family: 600;
+}
+
+.container-info span,
+.container-info p {
+  font-family: monospace;
+  font-weight: 800;
+}
+
+.container-info > span {
+  text-align: center;
+}
+
+.collapse {
+  text-align: center;
+}
+.listas_rutas > li {
+  font-weight: 500;
+}
+.listas_rutas > span {
+  font-weight: 200;
+}
+/* FIN PRESENTATION */
+
+/* INICIO ROUTES */
+.containar_routes {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+}
+.containar_routes > ul {
+  list-style: none;
+  padding: 50px;
+}
+@media (max-width: 768px) {
+  .containar_routes {
+    margin: 10px;
+  }
+  .containar_routes > ul {
+    padding: 10px;
+  }
+}
+/* FIN ROUTES */

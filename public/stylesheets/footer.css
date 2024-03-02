@@ -1,0 +1,14 @@
+footer {
+  width: 100%;
+}
+.row-footer {
+  margin-top: 10px !important;
+  color: white;
+  background-color: black;
+  height: 50px;
+}
+
+.row-footer a {
+  color: white;
+  cursor: pointer;
+}

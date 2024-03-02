@@ -1,43 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title %></title>
-  <link rel="stylesheet" href="stylesheets/<%= css %>">
-</head>
-<body>
+<%- include('./partials/header.ejs') %>
+
+<div class="img-header">
   <div class="container-fluid">
-    <header class="header container-fluid" id="site-header-main">
-      <div>
-        <div class="row">
-          <nav class="menu">
-            <ul class="logo">
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/mendietasergio/"
-                  target="_blank"
-                >
-                  <img src="images/LinkedIn.png" alt="" width="50" height="50">
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/MendietaSergio"
-                  target="_blank"
-                >
-                  <img src="images/GitHub.png" alt=""width="50" height="50">
-                </a>
-              </li>
-            </ul>
-          </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="img-foto">
+            <img
+              class="foto-perfil"
+              src="https://dev-mendietasergio.com.ar/assets/Foto-Perfil.032ef76b.jpg"
+              alt="Foto perfil"
+            />
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="container-info">
+            <span>Hola, mi nombre es</span>
+            <h1>Mendieta Sergio</h1>
+            <p class="text-justify">
+              Soy desarrollador full stack especializado en frontend y backend
+              para aplicaciones web complejas y escalables. Actualmente estoy en
+              busca de mi primer empleo IT. En mi página de
+              <a
+                href="https://github.com/MendietaSergio"
+                rel="noreferrer"
+                target="_blank"
+                >Github</a
+              >
+              subo proyectos que voy aprendiendo en internet.
+            </p>
+          </div>
         </div>
       </div>
-    </header>
+    </div>
   </div>
-  <div class="container">
-    <h1> Servidor para envios de email </h1>
+</div>
+<div class="container my-5">
+  <div class="containar_routes">
+    <h1 class="text-start">Rutas</h1>
+    <ul class="listas_rutas">
+      <li class="pt-2">Pagina principal del servidor</li>
+      <span class="px-3 pb-2" id="ruta_actual"></span>
+      <li class="pt-2">Se muestra los proyectos guardos en el server</li>
+      <span class="px-3 pb-2">GET: /api/products</span>
+      <li class="pt-2">Para poder guardar nuevos proyectos en el server</li>
+      <span class="px-3 pb-2">POST: /api/products</span>
+      <li class="pt-2">Actualizar proyecto en base al ID</li>
+      <span class="px-3 pb-2">UPDATE: /api/products</span>
+      <li class="pt-2">Eliminar proyecto en base al ID</li>
+      <span class="px-3 pb-2">DELETE: /api/products</span>
+    </ul>
   </div>
-</body>
-</html>
+</div>
+
+<%- include('./partials/footer.ejs') %>
