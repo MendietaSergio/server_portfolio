@@ -187,12 +187,14 @@ module.exports = {
     const { title,
       githubUrl,
       deployUrl,
-      titleImg } = req.body
+      titleImg,
+      type } = req.body
     const newProyects = new Proyects({
       title,
       githubUrl,
       deployUrl,
-      titleImg
+      titleImg,
+      type
     })
     try {
 
